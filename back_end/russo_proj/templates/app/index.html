@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "normalize.css" %}" />
+    <link rel="stylesheet" href="{% static "app/css/app-style.css" %}" />
+    <title>Главная страница приложения</title>
+</head>
+<body>
+    <div class="main-wrap">
+        <nav class="main-sidebar">
+            <div class="logo-wrap">
+                <a href="#" class="logo-link">
+                    <img src="{% static "app/img/logo.png" %}" alt="logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="sidebar-menu-list">
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">Дисплей</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">Инструкция</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">Настройки</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">История</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">Наши контакты</a>
+                </li>
+                
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="wrap-submenu-title">
+                <div class="submenu-title-text-wrap">
+                    <h1 class="submenu-title-text">Дисплей</h1>
+                </div>
+                <div class="user-wrap">
+                    <img src="{% static "app/img/user-photo_162x163.jpg" %}" alt="user's photo" class="user-photo">
+                    <p class="user-name">Набиев Рустам</p>
+                </div>
+            </div>
+            <div class="social-network-parsers">
+                <ul class="social-network-parsers-list">
+                    <li class="social-network-parsers-item">
+                        <a href="#" class="social-network-parsers-link">VK</a>
+                        <hr class="social-network-parsers-hr">  
+                    </li>
+                    <li class="social-network-parsers-item">
+                        <a href="#" class="social-network-parsers-link">Instagram</a>
+                    </li>
+                    <li class="social-network-parsers-item">
+                        <a href="#" class="social-network-parsers-link">Twitter</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="gallery-preview"></div>
+        </main>
+    </div>
+        
+</body>
+</html>

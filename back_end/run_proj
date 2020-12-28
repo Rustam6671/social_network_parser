@@ -1,0 +1,6 @@
+#!/bin/bash
+clear
+echo "Запускаю контейнер Django по адресу http://localhost:8000"
+echo "Приложение - http://localhost:8000/app"
+docker container run --rm -it --name wep-app -p 8000:8000 -v /$(pwd):/home/www dbdc95d9efa9
+#--entrypoint bash 
