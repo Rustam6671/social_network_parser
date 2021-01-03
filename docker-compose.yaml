@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:13.1-alpine
+    volumes:
+      - ./back_end/db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=61313220
+      - POSTGRES_DB=web_app
+    ports:
+      - 127.0.0.1:5432:5432
+  web:
+    build: ./back_end/
+    command: gunicorn russo_proj.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./back_end/:/home/www
+    expose:
+      - 8000
+    env_file:
+      - ./back_end/.env.dev
+    depends_on:
+      - db
+  nginx:
+    build: ./back_end/nginx
+    volumes:
+    - ./back_end/russo_proj/static:/etc/nginx/templates/static
+    - ./back_end/russo_proj/mediafiles:/etc/nginx/templates/mediafiles
+    ports:
+    - "8080:80"
+    - "8081:81"
+    environment:
+    - NGINX_HOST=foobar.com
+    - NGINX_PORT=80
+    depends_on:
+    - web

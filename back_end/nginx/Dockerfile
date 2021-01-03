@@ -4,3 +4,4 @@ ENV APP_HOME=/home/www
 RUN addgroup -S www && adduser -S www -G www
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
+COPY vuejs /etc/nginx/html
