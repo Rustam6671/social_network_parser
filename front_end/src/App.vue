@@ -11,7 +11,7 @@
           <router-link to="/">Главная</router-link>
         </li>
         <li class="main_nav-item">
-          <router-link to="/about">Настройки</router-link>
+          <router-link to="/Settings">Настройки</router-link>
         </li>
         <li class="main_nav-item">
           <router-link to="/about">Иструкция</router-link>
@@ -33,19 +33,22 @@
 
 <style scoped>
   @import 'assets/css/normalizer.css';
+  .router-link-active {
+    border-bottom: solid #bd436b;
+  }
   .main_wrap{
     display: grid;
+    height: 100vh;
     grid-auto-flow: column;
     grid-template-columns: repeat(10, 1fr);
-    min-width: 100vh;
-    padding-top: 4em;
     background-color: #1c1f32;
   }
   #nav {
+    padding-top: 4em;
     grid-column: 1/3;
+    border-right: solid 1px #6f7c8d;
   }
   .main_nav-list {
-    height: 100vh;
     list-style: none;
     padding-left: 4em;
     padding-top: 4em;

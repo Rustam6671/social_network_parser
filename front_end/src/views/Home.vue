@@ -15,18 +15,18 @@
     </div>
     <div class="parser_mode">
       <ul class="parser_mode-list">
-        <li class="parser_mode-item">
-          <a href="#" class="parser_mode-link">
+        <li class="parser_mode-item" >
+          <a href="#" class="parser_mode-link" :class="{modeActive:isActive==='VK'}">
             VK
           </a>
         </li>
-        <li class="parser_mode-item">
-          <a href="#" class="parser_mode-link">
+        <li class="parser_mode-item" >
+          <a href="#" class="parser_mode-link" :class="{modeActive:isActive==='INSTAGRAM'}">
             INSTAGRAM
           </a>
         </li>
-        <li class="parser_mode-item">
-          <a href="#" class="parser_mode-link">
+        <li class="parser_mode-item" >
+          <a href="#" class="parser_mode-link" :class="{modeActive:isActive==='TWITTER'}">
             TWITTER
           </a>
         </li>
@@ -46,12 +46,13 @@
 </template>
 <style scoped>
   .header{
+    padding-top: 4em;
     display: grid;
     grid-auto-flow: column;
   }
   .submenu_text{
     font-size: 2.2em;
-    margin: 2% 0;
+    margin: 2% 15%;
     color:wheat;
   }
   .user_wrap{
@@ -95,21 +96,34 @@
     grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-columns: minmax(auto 10%);
+    justify-items: center;
 
 
   }
   .collection_img-wrap{
     height:320px;
-    width: 200px;
+    width: 230px;
     overflow: hidden;
-    text-align: center;
-    overflow: hidden;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px;
+    
   }
   .collection_img{
     height: 100%;
     margin-left: -26%;
   }
-
+  .user_name{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .modeActive{
+    display: inline-block;
+    border-bottom: solid #bd436b;
+    min-width: 50%;
+  }
 </style>
 <script>
 // @ is an alias to /src
@@ -119,6 +133,7 @@ export default {
   name: 'Home',
   data() {
     return {
+      isActive: 'VK',
       listImgUrl: []
     }
   },
@@ -126,7 +141,6 @@ export default {
   },
   created() {
     this.receiveImgUrl()
-    console.log(this.listImgUrl);
   },
   methods: {
     async receiveImgUrl() {
